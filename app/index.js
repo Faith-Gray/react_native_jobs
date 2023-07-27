@@ -1,4 +1,5 @@
 import { ScrollView, Text, View, } from "react-native";
+import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
 import { Stack, useRouter } from 'expo-router';
@@ -8,29 +9,42 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 
-export default function Page() {
-  const router = useRouter();
+export default function App() {
 
 
   return (
-  <SafeAreaView>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.boldText}>Fuck yes bro</Text>
+      </View>
+      <View style={styles.body}>
+        <Text>This is  aline adafj. adfaild</Text>
+        <Text>This is  aline adafj. adfaild</Text>
+        <Text>This is  aline adafj. adfaild</Text>
+        <Text>This is  aline adafj. adfaild</Text>
 
-    <Text>This is my App. And I love you</Text>
-    <Stack.Screen
-    
-      options={{
-        headerStyle: { backgroundColor: COLORS.lightWhite },
-        headerShadowVisible: false,
-        headerLeft: () => (
-          <ScreenHeaderBtn iconURL={icons.menu} dimension="60%" />
-        ), 
-        headerRight: () => (
-          <ScreenHeaderBtn iconURL={icons.menu} dimension="100%" />
-        ), 
-      }}
-    />
-  </SafeAreaView>
+      </View>
+    </View>
 
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  header: {
+    backgroundColor: 'teal',
+    padding: 20,
+  },
+  boldText: {
+    fontWeight: 'bold',
+  },
+  body: {
+    backgroundColor: 'pink',
+    padding: 20,
+  },
+});
