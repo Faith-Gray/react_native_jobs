@@ -1,4 +1,4 @@
-import { ScrollView, Text, View, Button, } from "react-native";
+import { ScrollView, Text, View, TextInput } from "react-native";
 import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
@@ -10,23 +10,19 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 
 export default function App() {
-  const [name, setName] = useState('Faith ');
+  const [name, setName] = useState('Faith');
+  const [age, setAge] = useState('26');
 
-  const clickHandler = () => {
-    setName('Ruby');
-  }
+ 
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-      
-        <Text>My Name is {name}</Text>
-        <Text></Text>
-        <View style={styles.buttonContainer}>
-          <Button title="Update Name" onPress={clickHandler} />
-        </View>
-        
-      </View>
+      <Text>Enter Name</Text>
+      <TextInput 
+      style={styles.input} 
+      placeholder="Enter " 
+      onChangeText={(value) => setName(value)} />
+      <Text> name: {name}, age: {age}</Text>
     </View>
 
   );
@@ -50,7 +46,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'pink',
     padding: 20,
   },
-  buttonContainer: {
-    marginTop: 20,
+  input: {
+    borderWidth: 1,
+    borderColor: 'teal',
+    padding: 8,
+    margin: 10,
+    width: 200,
   },
 });
